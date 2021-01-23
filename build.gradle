@@ -9,11 +9,37 @@ repositories {
 }
 
 dependencies {
+
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+
+    // um das application.properties in yaml zu definieren
+    implementation 'io.quarkus:quarkus-config-yaml'
+
+    // to enable logging - but I can't use SLF4J inside code!?!
+    implementation 'io.quarkus:quarkus-logging-gelf'
+    //    implementation 'org.jboss.logmanager:log4j2-jboss-logmanager'
+
+    // use spring-boot injection for properties - but it's not really
+    // working inside tests.
+    implementation 'io.quarkus:quarkus-spring-boot-properties'
+
     implementation 'io.quarkus:quarkus-resteasy'
 
+    // for implementing kubernetes operators
+//    implementation 'io.quarkus:quarkus-kubernetes-client'
+
+    // to manipulate keycloak
+//    implementation 'io.quarkus:quarkus-keycloak-admin-client'
+//    implementation 'io.quarkus:quarkus-keycloak-authorization'
+
+    // junit5 testing
     testImplementation 'io.quarkus:quarkus-junit5'
+
+    // to create rest services
     testImplementation 'io.rest-assured:rest-assured'
+
+
+
 }
 
 group 'de.bls19.playing.quarkus'
