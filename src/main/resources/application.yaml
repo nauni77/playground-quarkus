@@ -1,0 +1,15 @@
+# Configuration file
+# key = value
+
+quarkus:
+  log:
+    level: INFO
+quarkus:
+  log:
+    category:
+      "de.bls19":
+        min-level: DEBUG
+        level: DEBUG
+
+wagnerol:
+  value: "yes, it works!"
